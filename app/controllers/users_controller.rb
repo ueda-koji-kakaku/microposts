@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-    @microposts = @user.microposts.order(created_at: :desc)
+    @microposts = @user.microposts
   end
 
   def new
@@ -24,10 +24,6 @@ class UsersController < ApplicationController
       render 'edit'
     end
   end
-
-  def show 
-    @user = User.find(params[:id])
-  end 
 
   def create
     @user = User.new(user_params)
