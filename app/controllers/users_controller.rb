@@ -8,6 +8,26 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def edit
+    @user = User.find(session[:user_id]);
+    render "new" unless @user;
+  end
+  
+  def update
+    @user = User.find(session[:user_id]);
+    render "new" unless @user;
+    if @user.update_attributes(user_params)
+      flash[:success] = "update user infos"
+      redirect_to @user
+    else
+      render 'edit'
+    end
+  end
+
+  def show 
+    @user = User.find(params[:id])
+  end 
+
   def create
     @user = User.new(user_params)
     if @user.save
@@ -21,7 +41,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password,
-                                 :password_confirmation)
+    params.require(:user).permit(:name, :email, :password,:password_confirmation,:profile,:company)
   end
 end

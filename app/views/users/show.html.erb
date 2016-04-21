@@ -2,7 +2,12 @@
   
 <%= gravatar_for @user %>
 
-  
-<%= @user.name %>
+name : <%= @user.name %>
+<br>
+email : <%= @user.email %>
+<br>
+company : <%= @user.company %>
+<br>
+profile : <%= simple_format(@user.profile) %>
 
 </h1>
