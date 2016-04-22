@@ -9,7 +9,7 @@
   </aside>
   <div class="col-md-8">
     <% if @users.any? %>
-      <h3>following(<%= @users.count %>)</h3>
+      <h3>followed(<%= @users.count %>)</h3>
       <%= render partial: "users/user", collection: @users %>
     <% end %>
   </div>
