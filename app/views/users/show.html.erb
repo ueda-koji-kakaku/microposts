@@ -7,6 +7,8 @@
       </h1>
     </section>
   </aside>
+    <a href="/users/followings/<%= @user.id %>">followings</a>
+    <a href="/users/followers/<%= @user.id %>">followers</a>
   <div class="col-md-8">
     <%= render 'follow_form' if logged_in? %>
     <% if @user.microposts.any? %>
